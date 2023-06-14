@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Logged out{% endblock %}
+{% block content %}
+<h1>Выход их аккаунта</h1>
+<p>
+    Вы вышли из административного аккаунта
+    <hr>
+    Вы можете <a href="{% url 'authapp:login' %}">войти снова</a>.
+</p>
+{% endblock %}

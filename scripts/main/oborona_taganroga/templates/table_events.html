@@ -1,0 +1,59 @@
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+  
+  {% include "back_to_top.html" %}
+
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3"> 
+      <div class="table-title">
+        <div class="row">
+          
+          <h1 class="h2">{{welcome}}</h1>
+
+          <div class="col-xs-6 col-md-auto">										
+            <a href="#getExcel" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Выгрузить excel</span></a>
+            <!-- <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Удалить</span></a>	
+            <a href="#editEmployeeModal" class="btn btn-dark" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Изменить</span></a> -->
+            <a href="#addEmployeeModal" class="btn btn-info" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Добавить</span></a>	
+          </div>
+        </div>
+      </div>
+    </div>
+        <table class="table table-bordered" id="table_for_search">
+            <thead>
+              <tr>
+                <th>Название</th>
+                <th>Иллюстрация</th>
+                <th>Краткое описание</th>
+                <th>Полное описание</th>
+                <th>Адрес</th>
+                <th>Старт</th>
+                <th>Финиш</th>
+                <th>Роли</th>
+                <th>Широта</th>
+                <th>Долгота</th>
+                <th>Телефонный номер</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              {% for data in queryset %}
+              <tr>
+                <td>{{data.name}}</td>
+                <td>{{data.pic_url}}</td>
+                <td>{{data.brief_disc}}</td>
+                <td>{{data.full_disc}}</td>
+                <td>{{data.adress}}</td>
+                <td>{{data.time_start}}</td>
+                <td>{{data.time_end}}</td>
+                <td>{{data.roles}}</td>
+                <td>{{data.coord_long}}</td>
+                <td>{{data.coord_lat}}</td>
+                <td>{{data.phonenumber}}</td>
+                <td>
+                  <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                  <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                </td>
+              </tr>
+              {% endfor %} 
+            </tbody>
+          </table>
+  </main>

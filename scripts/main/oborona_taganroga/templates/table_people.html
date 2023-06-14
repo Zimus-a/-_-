@@ -1,0 +1,52 @@
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+
+  {% include "back_to_top.html" %}
+
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3"> 
+      <div class="table-title">
+        <div class="row">
+          
+          <h1 class="h2">{{welcome}}</h1>
+          <!-- <input type="text" name="search" value="" id="id_search" placeholder="Search" autofocus=""> -->
+
+          <div class="col-xs-6 col-md-auto">										
+            <a href="#getExcel" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Выгрузить excel</span></a>
+            <!-- <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Удалить</span></a>	
+            <a href="#editEmployeeModal" class="btn btn-dark" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Изменить</span></a> -->
+            <a href="#addEmployeeModal" class="btn btn-info" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Добавить</span></a>	
+          </div>
+        </div>
+      </div>
+    </div>
+          <table class="table table-bordered" id="table_for_search">
+            <thead>
+              <tr>
+                <th>Имя</th>
+                <th>Фамилия</th>
+                <th>Отчество</th>
+                <th>Телефон</th>
+                <th>Пол</th>
+                <th>Электронная почта</th>
+                <th>Спонсор</th>
+                <th>Действие</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for data in queryset %}
+              <tr>
+                <td>{{data.firstname}}</td>
+                <td>{{data.lastname}}</td>
+                <td>{{data.middlename}}</td>
+                <td>{{data.phonenumber}}</td>
+                <td>{{data.sex}}</td>
+                <td>{{data.email}}</td>
+                <td>{{data.is_sponsor}}</td>
+                <td>
+                  <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                  <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                </td>
+              </tr>
+              {% endfor %} 
+            </tbody>
+          </table>
+  </main>
